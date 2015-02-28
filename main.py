@@ -1,11 +1,15 @@
 import midimanager
 import mlpy
+import os
 
 def main():
     # Set input and output path
     inputPath = 'D:/Data Kiki/Tugas/Tingkat 4/Tugas Akhir/MidiMatcher/files/'
     outputPath = 'D:/Data Kiki/Tugas/Tingkat 4/Tugas Akhir/MidiMatcher/transcriptions/'
     recordPath = 'D:/Data Kiki/Tugas/Tingkat 4/Tugas Akhir/MidiMatcher/records/'
+
+    # Call praat script
+    os.system('praatcon.exe pitch_listing.praat 10 yes 0 70 2000')
 
     # Create MidiManager instance
     manager = midimanager.MidiManager()
