@@ -7,7 +7,7 @@ class MidiManager:
     def parseMidi(self, inputPath, outputPath, fileName):
         inputName = inputPath + fileName
         outputName = outputPath + fileName[:-4] + '.csv'
-        print 'Writing ' + fileName[:-4] + ' to csv...'
+        # print 'Writing ' + fileName[:-4] + ' to csv...'
 
         # Read midi file using midiparser library
         midi = midiparser.File(inputName)
