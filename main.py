@@ -26,7 +26,7 @@ def main():
     
         # Begin searching module
         result = controller.getDistance(recordPath, recordName, dbPath)
-        sortedResult = controller.sortByDist(result, 15)
+        sortedResult = controller.sortByDist(result, 10)
     else:
         print 'No such file.'
 
