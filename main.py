@@ -1,5 +1,27 @@
+import csv
 import os
 import searchmanager
+
+# For Experiment Purpose
+# Create sequence of semitone
+def createTranscription(path, fileName):
+    temp = []
+    inputName = path + fileName
+    outputName = inputName[:-4] + "_transcript.csv"
+           
+    with open(inputName) as csvfile:
+        transcriptreader = csv.DictReader(csvfile)
+
+        for row in transcriptreader:
+            temp.append(int(row['semitone']))
+
+    with open(outputName, 'wb') as csvfile:
+        transcriptwriter = csv.writer(csvfile, delimiter=',')
+        transcriptwriter.writerow(['semitone'])
+
+        for index in range(len(temp)):
+            if (temp[index] != temp[index-1]):
+                transcriptwriter.writerow([temp[index]])
 
 def main():
     # Set input and output path
@@ -23,6 +45,7 @@ def main():
     if os.path.isfile(recordPath + recordName + '.wav'):
         # Call praat script
         os.system('praatcon.exe pitch_listing.praat 10 yes 0 70 2000 \"' + recordName + '\"')
+        createTranscription(recordPath, recordName + '_result.csv')
     
         # Begin searching module
         result = controller.getDistance(recordPath, recordName, dbPath)
