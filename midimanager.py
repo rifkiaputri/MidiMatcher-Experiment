@@ -20,6 +20,8 @@ class MidiManager:
                 for event in track.events:
                     if event.type == midiparser.voice.NoteOn:
                         midiwriter.writerow([event.absolute, event.detail.note_no])
+                        # Add Short pause model
+                        midiwriter.writerow([event.absolute+1, 999])
 
     # Read midi note (semitone) from .csv format
     # Output: list of semitone

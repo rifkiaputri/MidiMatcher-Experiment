@@ -114,8 +114,14 @@ procedure AnalyzeFrame
   select pitch
   time = Get time from frame number... j
   f0 = Get value in frame... j Hertz
-  semitone = 12*log2(f0/440)+69
   if f0 != undefined
+    semitone = 12*log2(f0/440)+69
+    select table
+    Append row
+    Set numeric value... Object_'table'.nrow time 'time:3'
+    Set numeric value... Object_'table'.nrow semitone 'semitone:0'
+  else
+    semitone = 999
     select table
     Append row
     Set numeric value... Object_'table'.nrow time 'time:3'
