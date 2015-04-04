@@ -28,7 +28,7 @@ windowLength  = window_length
 pitchTimestep = time_step
 pitchFloor  = minimum_pitch
 pitchCeiling  = maximum_pitch
-sound_directory$ = "D:\Data Kiki\Tugas\Tingkat 4\Tugas Akhir\MidiMatcher\records\"
+sound_directory$ = "D:\Data Kiki\Tugas\Tingkat 4\Tugas Akhir\MidiMatcher\records\Eksperimen 4\"
 
 # If the VUV detection check is skipped, there is the possibility that the
 # boundary between the parts of the LongSound falls within a voiced interval,

@@ -27,7 +27,7 @@ def main():
     # Set input and output path
     rawDBPath = 'D:/Data Kiki/Tugas/Tingkat 4/Tugas Akhir/MidiMatcher/files/'
     dbPath = 'D:/Data Kiki/Tugas/Tingkat 4/Tugas Akhir/MidiMatcher/transcriptions/'
-    recordPath = 'D:/Data Kiki/Tugas/Tingkat 4/Tugas Akhir/MidiMatcher/records/'
+    recordPath = 'D:/Data Kiki/Tugas/Tingkat 4/Tugas Akhir/MidiMatcher/records/Eksperimen 4/'
 
     # Init database
     print 'Initializing database...'
@@ -49,7 +49,7 @@ def main():
     
         # Begin searching module
         result = controller.getDistance(recordPath, recordName, dbPath)
-        sortedResult = controller.sortByDist(result, 10)
+        controller.sortByDist(result, 10, recordPath, recordName)
     else:
         print 'No such file.'
 

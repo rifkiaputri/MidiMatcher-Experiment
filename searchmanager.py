@@ -30,13 +30,22 @@ class SearchManager:
 
     # Sort list of song by DTW distance
     # Output: Printed top-N list of song on console
-    def sortByDist(self, list, N):
+    def sortByDist(self, list, N, path, fileName):
         temp = sorted(list, key=itemgetter(0))
 
         idx = 0
         print '\nTop-' + str(N) + ' result:'
-        for result in temp:
-            idx += 1
-            print str(idx) + '. ' + result[1]
-            if idx == N:
-                break
+        with open(path + fileName + '_searchresult.txt', 'w') as f:
+            for result in temp:
+                idx += 1
+                print str(idx) + '. ' + result[1] +', Distance: ' + str(result[0])
+                f.write(str(idx) + '. ' + result[1] + "\n")
+                if idx == N:
+                    break
+            idx = 0
+            for result in temp:
+                idx += 1
+                f.write(str(result[0]) + "\n")
+                if idx == N:
+                    break
+        f.close()
